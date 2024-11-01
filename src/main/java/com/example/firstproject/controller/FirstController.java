@@ -17,4 +17,10 @@ public class FirstController {
     public String home() {
         return "home";
     }
+
+    @GetMapping("/bye")
+    public String bye(Model mo) {
+        mo.addAttribute("userName", "이동준");
+        return "goodbye";
+    }
 }
