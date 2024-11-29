@@ -17,7 +17,8 @@ public class ArticleController {
     public String newArticleForm(ArticleForm form) {
         //System.out.println(form.toString());
         Article ar = form.toEntity();
-        System.out.println("entity: " + ar.toString());
+        //System.out.println("entity: " + ar.toString());
+
         return "";
     }
 }
