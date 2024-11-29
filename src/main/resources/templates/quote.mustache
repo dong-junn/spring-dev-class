@@ -1,0 +1,8 @@
+{{>layouts/header}}
+<div class="bg-dark text-white p-5">
+    <h1>{{randomQuote}}</h1>
+    <form action="/random-quote" method="get">
+        <button type="submit" class="btn btn-warning">새로고침</button>
+    </form>
+</div>
+{{>layouts/footer}}
