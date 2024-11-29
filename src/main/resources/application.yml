@@ -8,11 +8,17 @@ spring:
   application:
     name: firstproject
 
+  h2:
+    console:
+      enabled: true
+
   datasource:
     url: jdbc:h2:tcp://localhost/~/mobile-dev
     username: sa
     password:
     driver-class-name: org.h2.Driver
+    generate-unique-name: false
+
 
   jpa:
     hibernate:
