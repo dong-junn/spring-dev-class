@@ -34,7 +34,7 @@ public class ArticleController {
         //System.out.println(form.toString());
         Article ar = form.toEntity();
         //System.out.println("entity: " + ar.toString());
-        articleRepository.save(ar);
-        return "";
+        Article afterAr = articleRepository.save(ar);
+        return "redirect:/articles/" + afterAr.getId();
     }
 }
