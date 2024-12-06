@@ -1,0 +1,17 @@
+{{>layouts/header}}
+
+<h1>상세 페이지</h1>
+
+<form class="container" action="/articles/create" method="post">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">제목</label>
+        <input readonly type="text"  class="form-control" id="title" name="title" value="{{articleResult.title}}">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">내용</label>
+        <textarea readonly class="form-control" rows="3" name="content">{{articleResult.content}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+{{>layouts/footer}}
