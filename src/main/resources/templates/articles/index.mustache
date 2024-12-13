@@ -1,0 +1,26 @@
+{{>layouts/header}}
+
+<h1>게시판 목록</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">아이디</th>
+            <th scope="col">제목</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+
+        {{#resultObj}}
+            <tr>
+                <th scope="row"> {{id}} </th>
+                <td><a href="/articles/{{id}}"></a>{{title}}</td>
+            </tr>
+        {{/resultObj}}
+    
+    </tbody>
+</table>
+
+{{>layouts/footer}}

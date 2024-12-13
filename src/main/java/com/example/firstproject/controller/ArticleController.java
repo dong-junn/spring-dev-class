@@ -10,11 +10,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class ArticleController {
 
     @Autowired
     ArticleRepository articleRepository;
+    
+    @GetMapping("articles")
+    public String index(Model model) {
+        List<Article> resultAr = (List<Article>) articleRepository.findAll();
+        model.addAttribute("resultObj", resultAr);
+        return "articles/index";
+    }
 
     @GetMapping("/articles/{id}")
     public String show(@PathVariable("id") Long id, Model mo) {
@@ -35,6 +44,6 @@ public class ArticleController {
         Article ar = form.toEntity();
         //System.out.println("entity: " + ar.toString());
         Article afterAr = articleRepository.save(ar);
-        return "redirect:/articles/" + afterAr.getId();
+        return "redirect:/articles/" + afterAr.getId(); // foward:/articles/ 도 가능하다
     }
 }
