@@ -1,0 +1,19 @@
+{{>layouts/header}}
+
+<h1>글 수정</h1>
+
+<form class="container" action="" method="post">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">제목 : 아이디 - {{articleResult.id}}</label>
+        <input type="text"  class="form-control" id="title" name="title" value="{{articleResult.title}}">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">내용</label>
+        <textarea class="form-control" rows="3" name="content">{{articleResult.content}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+<a href="/articles/{{articleResult.id}}/edit"> 수정 </a> | <a href="">삭제</a> | <a href="/articles">목록</a>
+{{>layouts/footer}}

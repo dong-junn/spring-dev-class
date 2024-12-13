@@ -17,8 +17,16 @@ public class ArticleController {
 
     @Autowired
     ArticleRepository articleRepository;
+
+    @GetMapping("/articles/{id}/edit")
+    public String edit(@PathVariable("id") Long id, Model mo) {
+        Article result = articleRepository.findById(id).orElse(null);
+        mo.addAttribute("articleResult", result);
+
+        return "articles/edit";
+    }
     
-    @GetMapping("articles")
+    @GetMapping("/articles")
     public String index(Model model) {
         List<Article> resultAr = (List<Article>) articleRepository.findAll();
         model.addAttribute("resultObj", resultAr);
