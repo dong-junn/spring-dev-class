@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -17,6 +18,14 @@ public class ArticleController {
 
     @Autowired
     ArticleRepository articleRepository;
+
+    @PostMapping("/articles/update")
+    public String update(@RequestParam("id") Long id, ArticleForm fo) {
+
+        Article resultEntity = fo.toEntity();
+        Article resultEntity2 = articleRepository.save(resultEntity);
+        return "redirect:/articles/" + resultEntity2.getId();
+    }
 
     @GetMapping("/articles/{id}/edit")
     public String edit(@PathVariable("id") Long id, Model mo) {
@@ -29,6 +38,20 @@ public class ArticleController {
     @GetMapping("/articles")
     public String index(Model model) {
         List<Article> resultAr = (List<Article>) articleRepository.findAll();
+        model.addAttribute("resultObj", resultAr);
+        return "articles/index";
+    }
+
+    @PostMapping("/articles")
+    public String index(@RequestParam("boardSearch") String keyword, Model model) {
+
+        List<Article> resultAr = null;
+
+        if (keyword != null) {
+            resultAr = (List<Article>) articleRepository.fidBytitleContaining(keyword);
+        }
+        resultAr = (List<Article>) articleRepository.findAll();
+
         model.addAttribute("resultObj", resultAr);
         return "articles/index";
     }

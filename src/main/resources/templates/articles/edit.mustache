@@ -2,7 +2,8 @@
 
 <h1>글 수정</h1>
 
-<form class="container" action="" method="post">
+<form class="container" action="/articles/update" method="post">
+    <input type="hidden" name="id" value="{{articleResult.id}}">
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">제목 : 아이디 - {{articleResult.id}}</label>
         <input type="text"  class="form-control" id="title" name="title" value="{{articleResult.title}}">

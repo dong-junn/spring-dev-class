@@ -2,6 +2,13 @@
 
 <h1>게시판 목록</h1>
 
+<div style="margin:15px">
+    <form action="/articles" method="post">
+          제목으로 검색 : <input type="text" name="boardSearch">
+            <button type="submit"> 검색 </button>
+    </form>
+</div>
+
 <table class="table">
     <thead>
         <tr>
@@ -16,7 +23,7 @@
         {{#resultObj}}
             <tr>
                 <th scope="row"> {{id}} </th>
-                <td><a href="/articles/{{id}}"></a>{{title}}</td>
+                <td><a href="/articles/{{id}}">{{title}}</td>
             </tr>
         {{/resultObj}}
     

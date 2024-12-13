@@ -3,8 +3,9 @@ package com.example.firstproject.dto;
 import com.example.firstproject.entity.Article;
 
 public class ArticleForm {
-    private String title;
 
+    private Long id;
+    private String title;
     private String content;
 
     @Override
@@ -16,13 +17,14 @@ public class ArticleForm {
     }
 
     public Article toEntity() {
-        Article ar = new Article(null, title, content);
+        Article ar = new Article(id, title, content);
 
         return ar;
     }
 
-    public ArticleForm(String title, String content) {
+    public ArticleForm(String title, String content, Long id) {
         this.title = title;
         this.content = content;
+        this.id = id;
     }
 }
