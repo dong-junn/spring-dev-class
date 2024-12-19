@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface ArticleRepository extends CrudRepository<Article, Long> {
 
-    List<Article> fidBytitleContaining(String title);
+    List<Article> findBytitleContaining(String title);
 }

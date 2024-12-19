@@ -48,7 +48,7 @@ public class ArticleController {
         List<Article> resultAr = null;
 
         if (keyword != null) {
-            resultAr = (List<Article>) articleRepository.fidBytitleContaining(keyword);
+            resultAr = (List<Article>) articleRepository.findBytitleContaining(keyword);
         }
         resultAr = (List<Article>) articleRepository.findAll();
 
